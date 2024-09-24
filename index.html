@@ -1,0 +1,310 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Timer</title>
+        <style type="text/css">
+            body{
+                background-image: url("https://stone-peking.oss-cn-beijing.aliyuncs.com/Pixel-City.gif");
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .board {
+  	margin:0 auto;
+  	position:relative;
+  	top:50px;
+  	overflow:hidden;
+  	z-index:3;
+  	width:735px;
+  	height:135px;
+  }
+  .block-digital {
+  	float: left;
+  	position: relative;
+  	z-index:10;
+  	width:90px;
+  	height:135px;
+  }
+  .block-padding {
+  	float: left;
+  	position: relative;
+  	z-index:10;
+  	width:15px;
+  	height:135px;
+  }
+  .light {
+  	background:transparent;
+  	position:absolute;
+  	margin:1px;
+  	width:13px;
+  	height:13px;
+  }
+  .colon .row-2.col-2,
+  .colon .row-2.col-3,
+  .colon .row-3.col-2,
+  .colon .row-3.col-3,
+  .colon .row-5.col-2,
+  .colon .row-5.col-3,
+  .colon .row-6.col-2,
+  .colon .row-6.col-3
+  {
+  	background:#FFFFFF;
+  }
+  
+  .num-0 .row-1.col-2,
+  .num-0 .row-1.col-3,
+  .num-0 .row-1.col-4,
+  .num-0 .row-2.col-1,
+  .num-0 .row-2.col-5,
+  .num-0 .row-3.col-1,
+  .num-0 .row-3.col-4,
+  .num-0 .row-3.col-5,
+  .num-0 .row-4.col-1,
+  .num-0 .row-4.col-3,
+  .num-0 .row-4.col-5,
+  .num-0 .row-5.col-1,
+  .num-0 .row-5.col-1,
+  .num-0 .row-5.col-2,
+  .num-0 .row-5.col-5,
+  .num-0 .row-6.col-1,
+  .num-0 .row-6.col-5,
+  .num-0 .row-7.col-2,
+  .num-0 .row-7.col-3,
+  .num-0 .row-7.col-4
+  
+  {
+  	background:#FFFFFF;
+  }
+  
+  .num-1 .row-1.col-3,
+  .num-1 .row-2.col-2,
+  .num-1 .row-2.col-3,
+  .num-1 .row-3.col-3,
+  .num-1 .row-4.col-3,
+  .num-1 .row-5.col-3,
+  .num-1 .row-6.col-3,
+  .num-1 .row-7.col-2,
+  .num-1 .row-7.col-3,
+  .num-1 .row-7.col-4
+  {
+  	background:#FFFFFF;
+  }
+  
+  .num-2 .row-1.col-2,
+  .num-2 .row-1.col-3,
+  .num-2 .row-1.col-4,
+  .num-2 .row-2.col-1,
+  .num-2 .row-2.col-5,
+  .num-2 .row-3.col-5,
+  .num-2 .row-4.col-4,
+  .num-2 .row-5.col-3,
+  .num-2 .row-6.col-2,
+  .num-2 .row-7.col-1,
+  .num-2 .row-7.col-2,
+  .num-2 .row-7.col-3,
+  .num-2 .row-7.col-4,
+  .num-2 .row-7.col-5
+  {
+  	background:#FFFFFF;
+  }
+  
+  .num-3 .row-1.col-1, 
+  .num-3 .row-1.col-2, 
+  .num-3 .row-1.col-3, 
+  .num-3 .row-1.col-4, 
+  .num-3 .row-1.col-5,
+  .num-3 .row-2.col-4,
+  .num-3 .row-3.col-3,
+  .num-3 .row-4.col-4,
+  .num-3 .row-5.col-5,
+  .num-3 .row-6.col-1,
+  .num-3 .row-6.col-5,
+  .num-3 .row-7.col-4,
+  .num-3 .row-7.col-3,
+  .num-3 .row-7.col-2
+  {
+  	/*background:#ffff33;*/
+  	background:#FFFFFF;
+  }
+  
+  .num-4 .row-1.col-4,
+  .num-4 .row-2.col-3,
+  .num-4 .row-2.col-4,
+  .num-4 .row-3.col-2,
+  .num-4 .row-3.col-4,
+  .num-4 .row-4.col-1,
+  .num-4 .row-4.col-4,
+  .num-4 .row-5.col-1,
+  .num-4 .row-5.col-2,
+  .num-4 .row-5.col-3,
+  .num-4 .row-5.col-4,
+  .num-4 .row-5.col-5,
+  .num-4 .row-6.col-4,
+  .num-4 .row-7.col-4
+  {
+  	background:#FFFFFF;
+  }
+  
+  .num-5 .row-1.col-1,
+  .num-5 .row-1.col-2,
+  .num-5 .row-1.col-3,
+  .num-5 .row-1.col-4,
+  .num-5 .row-1.col-5,
+  .num-5 .row-2.col-1,
+  .num-5 .row-3.col-1,
+  .num-5 .row-3.col-2,
+  .num-5 .row-3.col-3,
+  .num-5 .row-3.col-4,
+  .num-5 .row-4.col-5,
+  .num-5 .row-5.col-5,
+  .num-5 .row-6.col-1,
+  .num-5 .row-6.col-5,
+  .num-5 .row-7.col-2,
+  .num-5 .row-7.col-3,
+  .num-5 .row-7.col-4
+  {
+  	/*background:#ffff33;*/
+  	background:#FFFFFF;
+  }
+  
+  .num-6 .row-1.col-3,
+  .num-6 .row-1.col-4,
+  .num-6 .row-2.col-2,
+  .num-6 .row-3.col-1,
+  .num-6 .row-4.col-1,
+  .num-6 .row-4.col-2,
+  .num-6 .row-4.col-3,
+  .num-6 .row-4.col-4,
+  .num-6 .row-5.col-1,
+  .num-6 .row-5.col-5,
+  .num-6 .row-6.col-1,
+  .num-6 .row-6.col-5,
+  .num-6 .row-7.col-2,
+  .num-6 .row-7.col-3,
+  .num-6 .row-7.col-4
+  {
+  	background:#FFFFFF;
+  }
+  
+  .num-7 .row-1.col-1,
+  .num-7 .row-1.col-2,
+  .num-7 .row-1.col-3,
+  .num-7 .row-1.col-4,
+  .num-7 .row-1.col-5,
+  .num-7 .row-2.col-5,
+  .num-7 .row-3.col-4,
+  .num-7 .row-4.col-3,
+  .num-7 .row-5.col-2,
+  .num-7 .row-6.col-2,
+  .num-7 .row-7.col-2
+  {
+  	background:#FFFFFF;
+  }
+  
+  .num-8 .row-1.col-2,
+  .num-8 .row-1.col-3,
+  .num-8 .row-1.col-4,
+  .num-8 .row-2.col-1,
+  .num-8 .row-2.col-5,
+  .num-8 .row-3.col-1,
+  .num-8 .row-3.col-5,
+  .num-8 .row-4.col-2,
+  .num-8 .row-4.col-3,
+  .num-8 .row-4.col-4,
+  .num-8 .row-5.col-1,
+  .num-8 .row-5.col-5,
+  .num-8 .row-6.col-1,
+  .num-8 .row-6.col-5,
+  .num-8 .row-7.col-2,
+  .num-8 .row-7.col-3,
+  .num-8 .row-7.col-4
+  {
+  	background:#FFFFFF;	
+  }
+  
+  .num-9 .row-1.col-2,
+  .num-9 .row-1.col-3,
+  .num-9 .row-1.col-4,
+  .num-9 .row-2.col-1,
+  .num-9 .row-2.col-5,
+  .num-9 .row-3.col-1,
+  .num-9 .row-3.col-5,
+  .num-9 .row-4.col-2,
+  .num-9 .row-4.col-3,
+  .num-9 .row-4.col-4,
+  .num-9 .row-4.col-5,
+  .num-9 .row-5.col-5,
+  .num-9 .row-6.col-4,
+  .num-9 .row-7.col-2,
+  .num-9 .row-7.col-3
+  {
+  	background:#FFFFFF;
+  }    
+        </style>
+    </head>
+    <body>
+        <div class="led">
+            <div class="board">
+              <div id="led">
+                <div id="time-hh" class="block-digital num-2"><div uid="1" id="l-1" class="light row-0 col-0" style="top:0px;left:0px"></div><div uid="2" id="l-2" class="light row-0 col-1" style="top:0px;left:15px"></div><div uid="3" id="l-3" class="light row-0 col-2" style="top:0px;left:30px"></div><div uid="4" id="l-4" class="light row-0 col-3" style="top:0px;left:45px"></div><div uid="5" id="l-5" class="light row-0 col-4" style="top:0px;left:60px"></div><div uid="6" id="l-6" class="light row-0 col-5" style="top:0px;left:75px"></div><div uid="7" id="l-7" class="light row-1 col-0" style="top:15px;left:0px"></div><div uid="8" id="l-8" class="light row-1 col-1" style="top:15px;left:15px"></div><div uid="9" id="l-9" class="light row-1 col-2" style="top:15px;left:30px"></div><div uid="10" id="l-10" class="light row-1 col-3" style="top:15px;left:45px"></div><div uid="11" id="l-11" class="light row-1 col-4" style="top:15px;left:60px"></div><div uid="12" id="l-12" class="light row-1 col-5" style="top:15px;left:75px"></div><div uid="13" id="l-13" class="light row-2 col-0" style="top:30px;left:0px"></div><div uid="14" id="l-14" class="light row-2 col-1" style="top:30px;left:15px"></div><div uid="15" id="l-15" class="light row-2 col-2" style="top:30px;left:30px"></div><div uid="16" id="l-16" class="light row-2 col-3" style="top:30px;left:45px"></div><div uid="17" id="l-17" class="light row-2 col-4" style="top:30px;left:60px"></div><div uid="18" id="l-18" class="light row-2 col-5" style="top:30px;left:75px"></div><div uid="19" id="l-19" class="light row-3 col-0" style="top:45px;left:0px"></div><div uid="20" id="l-20" class="light row-3 col-1" style="top:45px;left:15px"></div><div uid="21" id="l-21" class="light row-3 col-2" style="top:45px;left:30px"></div><div uid="22" id="l-22" class="light row-3 col-3" style="top:45px;left:45px"></div><div uid="23" id="l-23" class="light row-3 col-4" style="top:45px;left:60px"></div><div uid="24" id="l-24" class="light row-3 col-5" style="top:45px;left:75px"></div><div uid="25" id="l-25" class="light row-4 col-0" style="top:60px;left:0px"></div><div uid="26" id="l-26" class="light row-4 col-1" style="top:60px;left:15px"></div><div uid="27" id="l-27" class="light row-4 col-2" style="top:60px;left:30px"></div><div uid="28" id="l-28" class="light row-4 col-3" style="top:60px;left:45px"></div><div uid="29" id="l-29" class="light row-4 col-4" style="top:60px;left:60px"></div><div uid="30" id="l-30" class="light row-4 col-5" style="top:60px;left:75px"></div><div uid="31" id="l-31" class="light row-5 col-0" style="top:75px;left:0px"></div><div uid="32" id="l-32" class="light row-5 col-1" style="top:75px;left:15px"></div><div uid="33" id="l-33" class="light row-5 col-2" style="top:75px;left:30px"></div><div uid="34" id="l-34" class="light row-5 col-3" style="top:75px;left:45px"></div><div uid="35" id="l-35" class="light row-5 col-4" style="top:75px;left:60px"></div><div uid="36" id="l-36" class="light row-5 col-5" style="top:75px;left:75px"></div><div uid="37" id="l-37" class="light row-6 col-0" style="top:90px;left:0px"></div><div uid="38" id="l-38" class="light row-6 col-1" style="top:90px;left:15px"></div><div uid="39" id="l-39" class="light row-6 col-2" style="top:90px;left:30px"></div><div uid="40" id="l-40" class="light row-6 col-3" style="top:90px;left:45px"></div><div uid="41" id="l-41" class="light row-6 col-4" style="top:90px;left:60px"></div><div uid="42" id="l-42" class="light row-6 col-5" style="top:90px;left:75px"></div><div uid="43" id="l-43" class="light row-7 col-0" style="top:105px;left:0px"></div><div uid="44" id="l-44" class="light row-7 col-1" style="top:105px;left:15px"></div><div uid="45" id="l-45" class="light row-7 col-2" style="top:105px;left:30px"></div><div uid="46" id="l-46" class="light row-7 col-3" style="top:105px;left:45px"></div><div uid="47" id="l-47" class="light row-7 col-4" style="top:105px;left:60px"></div><div uid="48" id="l-48" class="light row-7 col-5" style="top:105px;left:75px"></div><div uid="49" id="l-49" class="light row-8 col-0" style="top:120px;left:0px"></div><div uid="50" id="l-50" class="light row-8 col-1" style="top:120px;left:15px"></div><div uid="51" id="l-51" class="light row-8 col-2" style="top:120px;left:30px"></div><div uid="52" id="l-52" class="light row-8 col-3" style="top:120px;left:45px"></div><div uid="53" id="l-53" class="light row-8 col-4" style="top:120px;left:60px"></div><div uid="54" id="l-54" class="light row-8 col-5" style="top:120px;left:75px"></div></div>
+                <div id="time-h" class="block-digital num-2"><div uid="55" id="l-55" class="light row-0 col-0" style="top:0px;left:0px"></div><div uid="56" id="l-56" class="light row-0 col-1" style="top:0px;left:15px"></div><div uid="57" id="l-57" class="light row-0 col-2" style="top:0px;left:30px"></div><div uid="58" id="l-58" class="light row-0 col-3" style="top:0px;left:45px"></div><div uid="59" id="l-59" class="light row-0 col-4" style="top:0px;left:60px"></div><div uid="60" id="l-60" class="light row-0 col-5" style="top:0px;left:75px"></div><div uid="61" id="l-61" class="light row-1 col-0" style="top:15px;left:0px"></div><div uid="62" id="l-62" class="light row-1 col-1" style="top:15px;left:15px"></div><div uid="63" id="l-63" class="light row-1 col-2" style="top:15px;left:30px"></div><div uid="64" id="l-64" class="light row-1 col-3" style="top:15px;left:45px"></div><div uid="65" id="l-65" class="light row-1 col-4" style="top:15px;left:60px"></div><div uid="66" id="l-66" class="light row-1 col-5" style="top:15px;left:75px"></div><div uid="67" id="l-67" class="light row-2 col-0" style="top:30px;left:0px"></div><div uid="68" id="l-68" class="light row-2 col-1" style="top:30px;left:15px"></div><div uid="69" id="l-69" class="light row-2 col-2" style="top:30px;left:30px"></div><div uid="70" id="l-70" class="light row-2 col-3" style="top:30px;left:45px"></div><div uid="71" id="l-71" class="light row-2 col-4" style="top:30px;left:60px"></div><div uid="72" id="l-72" class="light row-2 col-5" style="top:30px;left:75px"></div><div uid="73" id="l-73" class="light row-3 col-0" style="top:45px;left:0px"></div><div uid="74" id="l-74" class="light row-3 col-1" style="top:45px;left:15px"></div><div uid="75" id="l-75" class="light row-3 col-2" style="top:45px;left:30px"></div><div uid="76" id="l-76" class="light row-3 col-3" style="top:45px;left:45px"></div><div uid="77" id="l-77" class="light row-3 col-4" style="top:45px;left:60px"></div><div uid="78" id="l-78" class="light row-3 col-5" style="top:45px;left:75px"></div><div uid="79" id="l-79" class="light row-4 col-0" style="top:60px;left:0px"></div><div uid="80" id="l-80" class="light row-4 col-1" style="top:60px;left:15px"></div><div uid="81" id="l-81" class="light row-4 col-2" style="top:60px;left:30px"></div><div uid="82" id="l-82" class="light row-4 col-3" style="top:60px;left:45px"></div><div uid="83" id="l-83" class="light row-4 col-4" style="top:60px;left:60px"></div><div uid="84" id="l-84" class="light row-4 col-5" style="top:60px;left:75px"></div><div uid="85" id="l-85" class="light row-5 col-0" style="top:75px;left:0px"></div><div uid="86" id="l-86" class="light row-5 col-1" style="top:75px;left:15px"></div><div uid="87" id="l-87" class="light row-5 col-2" style="top:75px;left:30px"></div><div uid="88" id="l-88" class="light row-5 col-3" style="top:75px;left:45px"></div><div uid="89" id="l-89" class="light row-5 col-4" style="top:75px;left:60px"></div><div uid="90" id="l-90" class="light row-5 col-5" style="top:75px;left:75px"></div><div uid="91" id="l-91" class="light row-6 col-0" style="top:90px;left:0px"></div><div uid="92" id="l-92" class="light row-6 col-1" style="top:90px;left:15px"></div><div uid="93" id="l-93" class="light row-6 col-2" style="top:90px;left:30px"></div><div uid="94" id="l-94" class="light row-6 col-3" style="top:90px;left:45px"></div><div uid="95" id="l-95" class="light row-6 col-4" style="top:90px;left:60px"></div><div uid="96" id="l-96" class="light row-6 col-5" style="top:90px;left:75px"></div><div uid="97" id="l-97" class="light row-7 col-0" style="top:105px;left:0px"></div><div uid="98" id="l-98" class="light row-7 col-1" style="top:105px;left:15px"></div><div uid="99" id="l-99" class="light row-7 col-2" style="top:105px;left:30px"></div><div uid="100" id="l-100" class="light row-7 col-3" style="top:105px;left:45px"></div><div uid="101" id="l-101" class="light row-7 col-4" style="top:105px;left:60px"></div><div uid="102" id="l-102" class="light row-7 col-5" style="top:105px;left:75px"></div><div uid="103" id="l-103" class="light row-8 col-0" style="top:120px;left:0px"></div><div uid="104" id="l-104" class="light row-8 col-1" style="top:120px;left:15px"></div><div uid="105" id="l-105" class="light row-8 col-2" style="top:120px;left:30px"></div><div uid="106" id="l-106" class="light row-8 col-3" style="top:120px;left:45px"></div><div uid="107" id="l-107" class="light row-8 col-4" style="top:120px;left:60px"></div><div uid="108" id="l-108" class="light row-8 col-5" style="top:120px;left:75px"></div></div>
+                <div id="time-h-colon" class="block-digital colon"><div uid="109" id="l-109" class="light row-0 col-0" style="top:0px;left:0px"></div><div uid="110" id="l-110" class="light row-0 col-1" style="top:0px;left:15px"></div><div uid="111" id="l-111" class="light row-0 col-2" style="top:0px;left:30px"></div><div uid="112" id="l-112" class="light row-0 col-3" style="top:0px;left:45px"></div><div uid="113" id="l-113" class="light row-0 col-4" style="top:0px;left:60px"></div><div uid="114" id="l-114" class="light row-0 col-5" style="top:0px;left:75px"></div><div uid="115" id="l-115" class="light row-1 col-0" style="top:15px;left:0px"></div><div uid="116" id="l-116" class="light row-1 col-1" style="top:15px;left:15px"></div><div uid="117" id="l-117" class="light row-1 col-2" style="top:15px;left:30px"></div><div uid="118" id="l-118" class="light row-1 col-3" style="top:15px;left:45px"></div><div uid="119" id="l-119" class="light row-1 col-4" style="top:15px;left:60px"></div><div uid="120" id="l-120" class="light row-1 col-5" style="top:15px;left:75px"></div><div uid="121" id="l-121" class="light row-2 col-0" style="top:30px;left:0px"></div><div uid="122" id="l-122" class="light row-2 col-1" style="top:30px;left:15px"></div><div uid="123" id="l-123" class="light row-2 col-2" style="top:30px;left:30px"></div><div uid="124" id="l-124" class="light row-2 col-3" style="top:30px;left:45px"></div><div uid="125" id="l-125" class="light row-2 col-4" style="top:30px;left:60px"></div><div uid="126" id="l-126" class="light row-2 col-5" style="top:30px;left:75px"></div><div uid="127" id="l-127" class="light row-3 col-0" style="top:45px;left:0px"></div><div uid="128" id="l-128" class="light row-3 col-1" style="top:45px;left:15px"></div><div uid="129" id="l-129" class="light row-3 col-2" style="top:45px;left:30px"></div><div uid="130" id="l-130" class="light row-3 col-3" style="top:45px;left:45px"></div><div uid="131" id="l-131" class="light row-3 col-4" style="top:45px;left:60px"></div><div uid="132" id="l-132" class="light row-3 col-5" style="top:45px;left:75px"></div><div uid="133" id="l-133" class="light row-4 col-0" style="top:60px;left:0px"></div><div uid="134" id="l-134" class="light row-4 col-1" style="top:60px;left:15px"></div><div uid="135" id="l-135" class="light row-4 col-2" style="top:60px;left:30px"></div><div uid="136" id="l-136" class="light row-4 col-3" style="top:60px;left:45px"></div><div uid="137" id="l-137" class="light row-4 col-4" style="top:60px;left:60px"></div><div uid="138" id="l-138" class="light row-4 col-5" style="top:60px;left:75px"></div><div uid="139" id="l-139" class="light row-5 col-0" style="top:75px;left:0px"></div><div uid="140" id="l-140" class="light row-5 col-1" style="top:75px;left:15px"></div><div uid="141" id="l-141" class="light row-5 col-2" style="top:75px;left:30px"></div><div uid="142" id="l-142" class="light row-5 col-3" style="top:75px;left:45px"></div><div uid="143" id="l-143" class="light row-5 col-4" style="top:75px;left:60px"></div><div uid="144" id="l-144" class="light row-5 col-5" style="top:75px;left:75px"></div><div uid="145" id="l-145" class="light row-6 col-0" style="top:90px;left:0px"></div><div uid="146" id="l-146" class="light row-6 col-1" style="top:90px;left:15px"></div><div uid="147" id="l-147" class="light row-6 col-2" style="top:90px;left:30px"></div><div uid="148" id="l-148" class="light row-6 col-3" style="top:90px;left:45px"></div><div uid="149" id="l-149" class="light row-6 col-4" style="top:90px;left:60px"></div><div uid="150" id="l-150" class="light row-6 col-5" style="top:90px;left:75px"></div><div uid="151" id="l-151" class="light row-7 col-0" style="top:105px;left:0px"></div><div uid="152" id="l-152" class="light row-7 col-1" style="top:105px;left:15px"></div><div uid="153" id="l-153" class="light row-7 col-2" style="top:105px;left:30px"></div><div uid="154" id="l-154" class="light row-7 col-3" style="top:105px;left:45px"></div><div uid="155" id="l-155" class="light row-7 col-4" style="top:105px;left:60px"></div><div uid="156" id="l-156" class="light row-7 col-5" style="top:105px;left:75px"></div><div uid="157" id="l-157" class="light row-8 col-0" style="top:120px;left:0px"></div><div uid="158" id="l-158" class="light row-8 col-1" style="top:120px;left:15px"></div><div uid="159" id="l-159" class="light row-8 col-2" style="top:120px;left:30px"></div><div uid="160" id="l-160" class="light row-8 col-3" style="top:120px;left:45px"></div><div uid="161" id="l-161" class="light row-8 col-4" style="top:120px;left:60px"></div><div uid="162" id="l-162" class="light row-8 col-5" style="top:120px;left:75px"></div></div>
+                <div id="time-mm" class="block-digital num-0"><div uid="163" id="l-163" class="light row-0 col-0" style="top:0px;left:0px"></div><div uid="164" id="l-164" class="light row-0 col-1" style="top:0px;left:15px"></div><div uid="165" id="l-165" class="light row-0 col-2" style="top:0px;left:30px"></div><div uid="166" id="l-166" class="light row-0 col-3" style="top:0px;left:45px"></div><div uid="167" id="l-167" class="light row-0 col-4" style="top:0px;left:60px"></div><div uid="168" id="l-168" class="light row-0 col-5" style="top:0px;left:75px"></div><div uid="169" id="l-169" class="light row-1 col-0" style="top:15px;left:0px"></div><div uid="170" id="l-170" class="light row-1 col-1" style="top:15px;left:15px"></div><div uid="171" id="l-171" class="light row-1 col-2" style="top:15px;left:30px"></div><div uid="172" id="l-172" class="light row-1 col-3" style="top:15px;left:45px"></div><div uid="173" id="l-173" class="light row-1 col-4" style="top:15px;left:60px"></div><div uid="174" id="l-174" class="light row-1 col-5" style="top:15px;left:75px"></div><div uid="175" id="l-175" class="light row-2 col-0" style="top:30px;left:0px"></div><div uid="176" id="l-176" class="light row-2 col-1" style="top:30px;left:15px"></div><div uid="177" id="l-177" class="light row-2 col-2" style="top:30px;left:30px"></div><div uid="178" id="l-178" class="light row-2 col-3" style="top:30px;left:45px"></div><div uid="179" id="l-179" class="light row-2 col-4" style="top:30px;left:60px"></div><div uid="180" id="l-180" class="light row-2 col-5" style="top:30px;left:75px"></div><div uid="181" id="l-181" class="light row-3 col-0" style="top:45px;left:0px"></div><div uid="182" id="l-182" class="light row-3 col-1" style="top:45px;left:15px"></div><div uid="183" id="l-183" class="light row-3 col-2" style="top:45px;left:30px"></div><div uid="184" id="l-184" class="light row-3 col-3" style="top:45px;left:45px"></div><div uid="185" id="l-185" class="light row-3 col-4" style="top:45px;left:60px"></div><div uid="186" id="l-186" class="light row-3 col-5" style="top:45px;left:75px"></div><div uid="187" id="l-187" class="light row-4 col-0" style="top:60px;left:0px"></div><div uid="188" id="l-188" class="light row-4 col-1" style="top:60px;left:15px"></div><div uid="189" id="l-189" class="light row-4 col-2" style="top:60px;left:30px"></div><div uid="190" id="l-190" class="light row-4 col-3" style="top:60px;left:45px"></div><div uid="191" id="l-191" class="light row-4 col-4" style="top:60px;left:60px"></div><div uid="192" id="l-192" class="light row-4 col-5" style="top:60px;left:75px"></div><div uid="193" id="l-193" class="light row-5 col-0" style="top:75px;left:0px"></div><div uid="194" id="l-194" class="light row-5 col-1" style="top:75px;left:15px"></div><div uid="195" id="l-195" class="light row-5 col-2" style="top:75px;left:30px"></div><div uid="196" id="l-196" class="light row-5 col-3" style="top:75px;left:45px"></div><div uid="197" id="l-197" class="light row-5 col-4" style="top:75px;left:60px"></div><div uid="198" id="l-198" class="light row-5 col-5" style="top:75px;left:75px"></div><div uid="199" id="l-199" class="light row-6 col-0" style="top:90px;left:0px"></div><div uid="200" id="l-200" class="light row-6 col-1" style="top:90px;left:15px"></div><div uid="201" id="l-201" class="light row-6 col-2" style="top:90px;left:30px"></div><div uid="202" id="l-202" class="light row-6 col-3" style="top:90px;left:45px"></div><div uid="203" id="l-203" class="light row-6 col-4" style="top:90px;left:60px"></div><div uid="204" id="l-204" class="light row-6 col-5" style="top:90px;left:75px"></div><div uid="205" id="l-205" class="light row-7 col-0" style="top:105px;left:0px"></div><div uid="206" id="l-206" class="light row-7 col-1" style="top:105px;left:15px"></div><div uid="207" id="l-207" class="light row-7 col-2" style="top:105px;left:30px"></div><div uid="208" id="l-208" class="light row-7 col-3" style="top:105px;left:45px"></div><div uid="209" id="l-209" class="light row-7 col-4" style="top:105px;left:60px"></div><div uid="210" id="l-210" class="light row-7 col-5" style="top:105px;left:75px"></div><div uid="211" id="l-211" class="light row-8 col-0" style="top:120px;left:0px"></div><div uid="212" id="l-212" class="light row-8 col-1" style="top:120px;left:15px"></div><div uid="213" id="l-213" class="light row-8 col-2" style="top:120px;left:30px"></div><div uid="214" id="l-214" class="light row-8 col-3" style="top:120px;left:45px"></div><div uid="215" id="l-215" class="light row-8 col-4" style="top:120px;left:60px"></div><div uid="216" id="l-216" class="light row-8 col-5" style="top:120px;left:75px"></div></div>
+                <div id="time-m" class="block-digital num-0"><div uid="217" id="l-217" class="light row-0 col-0" style="top:0px;left:0px"></div><div uid="218" id="l-218" class="light row-0 col-1" style="top:0px;left:15px"></div><div uid="219" id="l-219" class="light row-0 col-2" style="top:0px;left:30px"></div><div uid="220" id="l-220" class="light row-0 col-3" style="top:0px;left:45px"></div><div uid="221" id="l-221" class="light row-0 col-4" style="top:0px;left:60px"></div><div uid="222" id="l-222" class="light row-0 col-5" style="top:0px;left:75px"></div><div uid="223" id="l-223" class="light row-1 col-0" style="top:15px;left:0px"></div><div uid="224" id="l-224" class="light row-1 col-1" style="top:15px;left:15px"></div><div uid="225" id="l-225" class="light row-1 col-2" style="top:15px;left:30px"></div><div uid="226" id="l-226" class="light row-1 col-3" style="top:15px;left:45px"></div><div uid="227" id="l-227" class="light row-1 col-4" style="top:15px;left:60px"></div><div uid="228" id="l-228" class="light row-1 col-5" style="top:15px;left:75px"></div><div uid="229" id="l-229" class="light row-2 col-0" style="top:30px;left:0px"></div><div uid="230" id="l-230" class="light row-2 col-1" style="top:30px;left:15px"></div><div uid="231" id="l-231" class="light row-2 col-2" style="top:30px;left:30px"></div><div uid="232" id="l-232" class="light row-2 col-3" style="top:30px;left:45px"></div><div uid="233" id="l-233" class="light row-2 col-4" style="top:30px;left:60px"></div><div uid="234" id="l-234" class="light row-2 col-5" style="top:30px;left:75px"></div><div uid="235" id="l-235" class="light row-3 col-0" style="top:45px;left:0px"></div><div uid="236" id="l-236" class="light row-3 col-1" style="top:45px;left:15px"></div><div uid="237" id="l-237" class="light row-3 col-2" style="top:45px;left:30px"></div><div uid="238" id="l-238" class="light row-3 col-3" style="top:45px;left:45px"></div><div uid="239" id="l-239" class="light row-3 col-4" style="top:45px;left:60px"></div><div uid="240" id="l-240" class="light row-3 col-5" style="top:45px;left:75px"></div><div uid="241" id="l-241" class="light row-4 col-0" style="top:60px;left:0px"></div><div uid="242" id="l-242" class="light row-4 col-1" style="top:60px;left:15px"></div><div uid="243" id="l-243" class="light row-4 col-2" style="top:60px;left:30px"></div><div uid="244" id="l-244" class="light row-4 col-3" style="top:60px;left:45px"></div><div uid="245" id="l-245" class="light row-4 col-4" style="top:60px;left:60px"></div><div uid="246" id="l-246" class="light row-4 col-5" style="top:60px;left:75px"></div><div uid="247" id="l-247" class="light row-5 col-0" style="top:75px;left:0px"></div><div uid="248" id="l-248" class="light row-5 col-1" style="top:75px;left:15px"></div><div uid="249" id="l-249" class="light row-5 col-2" style="top:75px;left:30px"></div><div uid="250" id="l-250" class="light row-5 col-3" style="top:75px;left:45px"></div><div uid="251" id="l-251" class="light row-5 col-4" style="top:75px;left:60px"></div><div uid="252" id="l-252" class="light row-5 col-5" style="top:75px;left:75px"></div><div uid="253" id="l-253" class="light row-6 col-0" style="top:90px;left:0px"></div><div uid="254" id="l-254" class="light row-6 col-1" style="top:90px;left:15px"></div><div uid="255" id="l-255" class="light row-6 col-2" style="top:90px;left:30px"></div><div uid="256" id="l-256" class="light row-6 col-3" style="top:90px;left:45px"></div><div uid="257" id="l-257" class="light row-6 col-4" style="top:90px;left:60px"></div><div uid="258" id="l-258" class="light row-6 col-5" style="top:90px;left:75px"></div><div uid="259" id="l-259" class="light row-7 col-0" style="top:105px;left:0px"></div><div uid="260" id="l-260" class="light row-7 col-1" style="top:105px;left:15px"></div><div uid="261" id="l-261" class="light row-7 col-2" style="top:105px;left:30px"></div><div uid="262" id="l-262" class="light row-7 col-3" style="top:105px;left:45px"></div><div uid="263" id="l-263" class="light row-7 col-4" style="top:105px;left:60px"></div><div uid="264" id="l-264" class="light row-7 col-5" style="top:105px;left:75px"></div><div uid="265" id="l-265" class="light row-8 col-0" style="top:120px;left:0px"></div><div uid="266" id="l-266" class="light row-8 col-1" style="top:120px;left:15px"></div><div uid="267" id="l-267" class="light row-8 col-2" style="top:120px;left:30px"></div><div uid="268" id="l-268" class="light row-8 col-3" style="top:120px;left:45px"></div><div uid="269" id="l-269" class="light row-8 col-4" style="top:120px;left:60px"></div><div uid="270" id="l-270" class="light row-8 col-5" style="top:120px;left:75px"></div></div>
+                <div id="time-m-colon" class="block-digital colon"><div uid="271" id="l-271" class="light row-0 col-0" style="top:0px;left:0px"></div><div uid="272" id="l-272" class="light row-0 col-1" style="top:0px;left:15px"></div><div uid="273" id="l-273" class="light row-0 col-2" style="top:0px;left:30px"></div><div uid="274" id="l-274" class="light row-0 col-3" style="top:0px;left:45px"></div><div uid="275" id="l-275" class="light row-0 col-4" style="top:0px;left:60px"></div><div uid="276" id="l-276" class="light row-0 col-5" style="top:0px;left:75px"></div><div uid="277" id="l-277" class="light row-1 col-0" style="top:15px;left:0px"></div><div uid="278" id="l-278" class="light row-1 col-1" style="top:15px;left:15px"></div><div uid="279" id="l-279" class="light row-1 col-2" style="top:15px;left:30px"></div><div uid="280" id="l-280" class="light row-1 col-3" style="top:15px;left:45px"></div><div uid="281" id="l-281" class="light row-1 col-4" style="top:15px;left:60px"></div><div uid="282" id="l-282" class="light row-1 col-5" style="top:15px;left:75px"></div><div uid="283" id="l-283" class="light row-2 col-0" style="top:30px;left:0px"></div><div uid="284" id="l-284" class="light row-2 col-1" style="top:30px;left:15px"></div><div uid="285" id="l-285" class="light row-2 col-2" style="top:30px;left:30px"></div><div uid="286" id="l-286" class="light row-2 col-3" style="top:30px;left:45px"></div><div uid="287" id="l-287" class="light row-2 col-4" style="top:30px;left:60px"></div><div uid="288" id="l-288" class="light row-2 col-5" style="top:30px;left:75px"></div><div uid="289" id="l-289" class="light row-3 col-0" style="top:45px;left:0px"></div><div uid="290" id="l-290" class="light row-3 col-1" style="top:45px;left:15px"></div><div uid="291" id="l-291" class="light row-3 col-2" style="top:45px;left:30px"></div><div uid="292" id="l-292" class="light row-3 col-3" style="top:45px;left:45px"></div><div uid="293" id="l-293" class="light row-3 col-4" style="top:45px;left:60px"></div><div uid="294" id="l-294" class="light row-3 col-5" style="top:45px;left:75px"></div><div uid="295" id="l-295" class="light row-4 col-0" style="top:60px;left:0px"></div><div uid="296" id="l-296" class="light row-4 col-1" style="top:60px;left:15px"></div><div uid="297" id="l-297" class="light row-4 col-2" style="top:60px;left:30px"></div><div uid="298" id="l-298" class="light row-4 col-3" style="top:60px;left:45px"></div><div uid="299" id="l-299" class="light row-4 col-4" style="top:60px;left:60px"></div><div uid="300" id="l-300" class="light row-4 col-5" style="top:60px;left:75px"></div><div uid="301" id="l-301" class="light row-5 col-0" style="top:75px;left:0px"></div><div uid="302" id="l-302" class="light row-5 col-1" style="top:75px;left:15px"></div><div uid="303" id="l-303" class="light row-5 col-2" style="top:75px;left:30px"></div><div uid="304" id="l-304" class="light row-5 col-3" style="top:75px;left:45px"></div><div uid="305" id="l-305" class="light row-5 col-4" style="top:75px;left:60px"></div><div uid="306" id="l-306" class="light row-5 col-5" style="top:75px;left:75px"></div><div uid="307" id="l-307" class="light row-6 col-0" style="top:90px;left:0px"></div><div uid="308" id="l-308" class="light row-6 col-1" style="top:90px;left:15px"></div><div uid="309" id="l-309" class="light row-6 col-2" style="top:90px;left:30px"></div><div uid="310" id="l-310" class="light row-6 col-3" style="top:90px;left:45px"></div><div uid="311" id="l-311" class="light row-6 col-4" style="top:90px;left:60px"></div><div uid="312" id="l-312" class="light row-6 col-5" style="top:90px;left:75px"></div><div uid="313" id="l-313" class="light row-7 col-0" style="top:105px;left:0px"></div><div uid="314" id="l-314" class="light row-7 col-1" style="top:105px;left:15px"></div><div uid="315" id="l-315" class="light row-7 col-2" style="top:105px;left:30px"></div><div uid="316" id="l-316" class="light row-7 col-3" style="top:105px;left:45px"></div><div uid="317" id="l-317" class="light row-7 col-4" style="top:105px;left:60px"></div><div uid="318" id="l-318" class="light row-7 col-5" style="top:105px;left:75px"></div><div uid="319" id="l-319" class="light row-8 col-0" style="top:120px;left:0px"></div><div uid="320" id="l-320" class="light row-8 col-1" style="top:120px;left:15px"></div><div uid="321" id="l-321" class="light row-8 col-2" style="top:120px;left:30px"></div><div uid="322" id="l-322" class="light row-8 col-3" style="top:120px;left:45px"></div><div uid="323" id="l-323" class="light row-8 col-4" style="top:120px;left:60px"></div><div uid="324" id="l-324" class="light row-8 col-5" style="top:120px;left:75px"></div></div>
+                <div id="time-ss" class="block-digital num-0"><div uid="325" id="l-325" class="light row-0 col-0" style="top:0px;left:0px"></div><div uid="326" id="l-326" class="light row-0 col-1" style="top:0px;left:15px"></div><div uid="327" id="l-327" class="light row-0 col-2" style="top:0px;left:30px"></div><div uid="328" id="l-328" class="light row-0 col-3" style="top:0px;left:45px"></div><div uid="329" id="l-329" class="light row-0 col-4" style="top:0px;left:60px"></div><div uid="330" id="l-330" class="light row-0 col-5" style="top:0px;left:75px"></div><div uid="331" id="l-331" class="light row-1 col-0" style="top:15px;left:0px"></div><div uid="332" id="l-332" class="light row-1 col-1" style="top:15px;left:15px"></div><div uid="333" id="l-333" class="light row-1 col-2" style="top:15px;left:30px"></div><div uid="334" id="l-334" class="light row-1 col-3" style="top:15px;left:45px"></div><div uid="335" id="l-335" class="light row-1 col-4" style="top:15px;left:60px"></div><div uid="336" id="l-336" class="light row-1 col-5" style="top:15px;left:75px"></div><div uid="337" id="l-337" class="light row-2 col-0" style="top:30px;left:0px"></div><div uid="338" id="l-338" class="light row-2 col-1" style="top:30px;left:15px"></div><div uid="339" id="l-339" class="light row-2 col-2" style="top:30px;left:30px"></div><div uid="340" id="l-340" class="light row-2 col-3" style="top:30px;left:45px"></div><div uid="341" id="l-341" class="light row-2 col-4" style="top:30px;left:60px"></div><div uid="342" id="l-342" class="light row-2 col-5" style="top:30px;left:75px"></div><div uid="343" id="l-343" class="light row-3 col-0" style="top:45px;left:0px"></div><div uid="344" id="l-344" class="light row-3 col-1" style="top:45px;left:15px"></div><div uid="345" id="l-345" class="light row-3 col-2" style="top:45px;left:30px"></div><div uid="346" id="l-346" class="light row-3 col-3" style="top:45px;left:45px"></div><div uid="347" id="l-347" class="light row-3 col-4" style="top:45px;left:60px"></div><div uid="348" id="l-348" class="light row-3 col-5" style="top:45px;left:75px"></div><div uid="349" id="l-349" class="light row-4 col-0" style="top:60px;left:0px"></div><div uid="350" id="l-350" class="light row-4 col-1" style="top:60px;left:15px"></div><div uid="351" id="l-351" class="light row-4 col-2" style="top:60px;left:30px"></div><div uid="352" id="l-352" class="light row-4 col-3" style="top:60px;left:45px"></div><div uid="353" id="l-353" class="light row-4 col-4" style="top:60px;left:60px"></div><div uid="354" id="l-354" class="light row-4 col-5" style="top:60px;left:75px"></div><div uid="355" id="l-355" class="light row-5 col-0" style="top:75px;left:0px"></div><div uid="356" id="l-356" class="light row-5 col-1" style="top:75px;left:15px"></div><div uid="357" id="l-357" class="light row-5 col-2" style="top:75px;left:30px"></div><div uid="358" id="l-358" class="light row-5 col-3" style="top:75px;left:45px"></div><div uid="359" id="l-359" class="light row-5 col-4" style="top:75px;left:60px"></div><div uid="360" id="l-360" class="light row-5 col-5" style="top:75px;left:75px"></div><div uid="361" id="l-361" class="light row-6 col-0" style="top:90px;left:0px"></div><div uid="362" id="l-362" class="light row-6 col-1" style="top:90px;left:15px"></div><div uid="363" id="l-363" class="light row-6 col-2" style="top:90px;left:30px"></div><div uid="364" id="l-364" class="light row-6 col-3" style="top:90px;left:45px"></div><div uid="365" id="l-365" class="light row-6 col-4" style="top:90px;left:60px"></div><div uid="366" id="l-366" class="light row-6 col-5" style="top:90px;left:75px"></div><div uid="367" id="l-367" class="light row-7 col-0" style="top:105px;left:0px"></div><div uid="368" id="l-368" class="light row-7 col-1" style="top:105px;left:15px"></div><div uid="369" id="l-369" class="light row-7 col-2" style="top:105px;left:30px"></div><div uid="370" id="l-370" class="light row-7 col-3" style="top:105px;left:45px"></div><div uid="371" id="l-371" class="light row-7 col-4" style="top:105px;left:60px"></div><div uid="372" id="l-372" class="light row-7 col-5" style="top:105px;left:75px"></div><div uid="373" id="l-373" class="light row-8 col-0" style="top:120px;left:0px"></div><div uid="374" id="l-374" class="light row-8 col-1" style="top:120px;left:15px"></div><div uid="375" id="l-375" class="light row-8 col-2" style="top:120px;left:30px"></div><div uid="376" id="l-376" class="light row-8 col-3" style="top:120px;left:45px"></div><div uid="377" id="l-377" class="light row-8 col-4" style="top:120px;left:60px"></div><div uid="378" id="l-378" class="light row-8 col-5" style="top:120px;left:75px"></div></div>
+                <div id="time-s" class="block-digital num-0"><div uid="379" id="l-379" class="light row-0 col-0" style="top:0px;left:0px"></div><div uid="380" id="l-380" class="light row-0 col-1" style="top:0px;left:15px"></div><div uid="381" id="l-381" class="light row-0 col-2" style="top:0px;left:30px"></div><div uid="382" id="l-382" class="light row-0 col-3" style="top:0px;left:45px"></div><div uid="383" id="l-383" class="light row-0 col-4" style="top:0px;left:60px"></div><div uid="384" id="l-384" class="light row-0 col-5" style="top:0px;left:75px"></div><div uid="385" id="l-385" class="light row-1 col-0" style="top:15px;left:0px"></div><div uid="386" id="l-386" class="light row-1 col-1" style="top:15px;left:15px"></div><div uid="387" id="l-387" class="light row-1 col-2" style="top:15px;left:30px"></div><div uid="388" id="l-388" class="light row-1 col-3" style="top:15px;left:45px"></div><div uid="389" id="l-389" class="light row-1 col-4" style="top:15px;left:60px"></div><div uid="390" id="l-390" class="light row-1 col-5" style="top:15px;left:75px"></div><div uid="391" id="l-391" class="light row-2 col-0" style="top:30px;left:0px"></div><div uid="392" id="l-392" class="light row-2 col-1" style="top:30px;left:15px"></div><div uid="393" id="l-393" class="light row-2 col-2" style="top:30px;left:30px"></div><div uid="394" id="l-394" class="light row-2 col-3" style="top:30px;left:45px"></div><div uid="395" id="l-395" class="light row-2 col-4" style="top:30px;left:60px"></div><div uid="396" id="l-396" class="light row-2 col-5" style="top:30px;left:75px"></div><div uid="397" id="l-397" class="light row-3 col-0" style="top:45px;left:0px"></div><div uid="398" id="l-398" class="light row-3 col-1" style="top:45px;left:15px"></div><div uid="399" id="l-399" class="light row-3 col-2" style="top:45px;left:30px"></div><div uid="400" id="l-400" class="light row-3 col-3" style="top:45px;left:45px"></div><div uid="401" id="l-401" class="light row-3 col-4" style="top:45px;left:60px"></div><div uid="402" id="l-402" class="light row-3 col-5" style="top:45px;left:75px"></div><div uid="403" id="l-403" class="light row-4 col-0" style="top:60px;left:0px"></div><div uid="404" id="l-404" class="light row-4 col-1" style="top:60px;left:15px"></div><div uid="405" id="l-405" class="light row-4 col-2" style="top:60px;left:30px"></div><div uid="406" id="l-406" class="light row-4 col-3" style="top:60px;left:45px"></div><div uid="407" id="l-407" class="light row-4 col-4" style="top:60px;left:60px"></div><div uid="408" id="l-408" class="light row-4 col-5" style="top:60px;left:75px"></div><div uid="409" id="l-409" class="light row-5 col-0" style="top:75px;left:0px"></div><div uid="410" id="l-410" class="light row-5 col-1" style="top:75px;left:15px"></div><div uid="411" id="l-411" class="light row-5 col-2" style="top:75px;left:30px"></div><div uid="412" id="l-412" class="light row-5 col-3" style="top:75px;left:45px"></div><div uid="413" id="l-413" class="light row-5 col-4" style="top:75px;left:60px"></div><div uid="414" id="l-414" class="light row-5 col-5" style="top:75px;left:75px"></div><div uid="415" id="l-415" class="light row-6 col-0" style="top:90px;left:0px"></div><div uid="416" id="l-416" class="light row-6 col-1" style="top:90px;left:15px"></div><div uid="417" id="l-417" class="light row-6 col-2" style="top:90px;left:30px"></div><div uid="418" id="l-418" class="light row-6 col-3" style="top:90px;left:45px"></div><div uid="419" id="l-419" class="light row-6 col-4" style="top:90px;left:60px"></div><div uid="420" id="l-420" class="light row-6 col-5" style="top:90px;left:75px"></div><div uid="421" id="l-421" class="light row-7 col-0" style="top:105px;left:0px"></div><div uid="422" id="l-422" class="light row-7 col-1" style="top:105px;left:15px"></div><div uid="423" id="l-423" class="light row-7 col-2" style="top:105px;left:30px"></div><div uid="424" id="l-424" class="light row-7 col-3" style="top:105px;left:45px"></div><div uid="425" id="l-425" class="light row-7 col-4" style="top:105px;left:60px"></div><div uid="426" id="l-426" class="light row-7 col-5" style="top:105px;left:75px"></div><div uid="427" id="l-427" class="light row-8 col-0" style="top:120px;left:0px"></div><div uid="428" id="l-428" class="light row-8 col-1" style="top:120px;left:15px"></div><div uid="429" id="l-429" class="light row-8 col-2" style="top:120px;left:30px"></div><div uid="430" id="l-430" class="light row-8 col-3" style="top:120px;left:45px"></div><div uid="431" id="l-431" class="light row-8 col-4" style="top:120px;left:60px"></div><div uid="432" id="l-432" class="light row-8 col-5" style="top:120px;left:75px"></div></div>
+                <div id="time-padding" class="block-padding"><div uid="433" id="l-433" class="light row-0 col-0" style="top:0px;left:0px"></div><div uid="434" id="l-434" class="light row-1 col-0" style="top:15px;left:0px"></div><div uid="435" id="l-435" class="light row-2 col-0" style="top:30px;left:0px"></div><div uid="436" id="l-436" class="light row-3 col-0" style="top:45px;left:0px"></div><div uid="437" id="l-437" class="light row-4 col-0" style="top:60px;left:0px"></div><div uid="438" id="l-438" class="light row-5 col-0" style="top:75px;left:0px"></div><div uid="439" id="l-439" class="light row-6 col-0" style="top:90px;left:0px"></div><div uid="440" id="l-440" class="light row-7 col-0" style="top:105px;left:0px"></div><div uid="441" id="l-441" class="light row-8 col-0" style="top:120px;left:0px"></div></div>
+              </div>
+            </div>
+        </div>
+        <script>
+            var led = document.getElementById('led'),
+                  els = led.childNodes,
+            uid=0, size=15, w=0, h=0, row=0, col=0,
+            arr_lights=[];
+            
+            var hh = document.getElementById('time-hh'),
+                  hx = document.getElementById('time-h'),
+                  mm = document.getElementById('time-mm'),
+                  mx = document.getElementById('time-m'),
+                  ss = document.getElementById('time-ss'),
+                  sx = document.getElementById('time-s');
+            
+            for(var k=0, len=els.length; k<len; k++){
+              if(els[k].nodeType!=1)
+            continue;
+                w = parseInt(els[k].clientWidth);
+              h	= parseInt(els[k].clientHeight);
+              row	= parseInt(h/size);
+                col	= parseInt(w/size);
+              
+              var t, l, sum=0;
+              for(var i=0; i<row; i++){
+                   for(var j=0; j<col; j++){
+              uid++;
+              t = size*i;
+              l = size*j;
+              arr_lights.push( '<div uid="'+uid+'" id="l-'+uid+'" class="light row-'+i+' col-'+j+'" style="top:'+t+'px;left:'+l+'px"></div>');
+            }
+              }
+              els[k].innerHTML = arr_lights.join("");
+              arr_lights=[];
+            }
+            
+            setInterval(function(){
+                var now = new Date(),
+                    time_hh = parseInt(now.getHours()),
+                       time_mm = parseInt(now.getMinutes()),
+                        time_ss = parseInt(now.getSeconds());
+                hh.className = "block-digital num-"+parseInt(time_hh/10);
+                hx.className = "block-digital num-"+parseInt(time_hh%10);
+                mm.className = "block-digital num-"+parseInt(time_mm/10);
+                mx.className = "block-digital num-"+parseInt(time_mm%10);
+                ss.className = "block-digital num-"+parseInt(time_ss/10);
+                sx.className = "block-digital num-"+parseInt(time_ss%10);
+              
+            }, 1000);    
+            </script>
+    </body>
+</html>
